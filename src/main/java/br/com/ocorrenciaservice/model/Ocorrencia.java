@@ -48,11 +48,3 @@ public class Ocorrencia extends AbstractEntity{
   }
 
 }
-
-/*
- `idocorrencias` INT NOT NULL AUTO_INCREMENT,
-  `categoria` VARCHAR(45) NOT NULL,
-  `subcategoria` VARCHAR(45) NOT NULL,
-  `status` VARCHAR(45) NULL,
-  `dataCadastro` DATETIME NULL,
- */
