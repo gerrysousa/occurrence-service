@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class RegistroOcorrencia extends AbstractEntity{
+public class Ocorrencia extends AbstractEntity{
   @NotEmpty(message = "O campo usuarioId é obrigatório!")
   private  String usuarioId;
   @NotEmpty(message = "O campo tipoOcorrenciaId é obrigatório!")
@@ -18,6 +18,16 @@ public class RegistroOcorrencia extends AbstractEntity{
   private double latitude;
 
   private double longitude;
+
+  private String descricao;
+
+  public String getDescricao() {
+    return descricao;
+  }
+
+  public void setDescricao(String descricao) {
+    this.descricao = descricao;
+  }
 
   public String getUsuarioId() {
     return usuarioId;
