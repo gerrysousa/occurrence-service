@@ -8,8 +8,8 @@ import javax.validation.constraints.NotEmpty;
 public class RegistroOcorrencia extends AbstractEntity{
   @NotEmpty(message = "O campo usuarioId é obrigatório!")
   private  String usuarioId;
-  @NotEmpty(message = "O campo ocorrenciaId é obrigatório!")
-  private String ocorrenciaId;
+  @NotEmpty(message = "O campo tipoOcorrenciaId é obrigatório!")
+  private String tipoOcorrenciaId;
 
   private String status;
 
@@ -27,12 +27,12 @@ public class RegistroOcorrencia extends AbstractEntity{
     this.usuarioId = usuarioId;
   }
 
-  public String getOcorrenciaId() {
-    return ocorrenciaId;
+  public String getTipoOcorrenciaId() {
+    return tipoOcorrenciaId;
   }
 
-  public void setOcorrenciaId(String ocorrenciaId) {
-    this.ocorrenciaId = ocorrenciaId;
+  public void setTipoOcorrenciaId(String tipoOcorrenciaId) {
+    this.tipoOcorrenciaId = tipoOcorrenciaId;
   }
 
   public String getStatus() {

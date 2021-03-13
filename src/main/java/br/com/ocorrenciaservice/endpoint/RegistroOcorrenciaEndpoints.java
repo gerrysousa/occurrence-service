@@ -22,10 +22,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-
-
 @RestController
-@RequestMapping("registro_ocorrencias")
+@RequestMapping("registroOcorrencias")
 public class RegistroOcorrenciaEndpoints {
   private final RegistroOcorrenciaRepository registroOcorrenciaDAO;
 
@@ -48,9 +46,9 @@ public class RegistroOcorrenciaEndpoints {
     return new ResponseEntity<>(registroOcorrencia, HttpStatus.OK);
   }
 
-  @GetMapping(path = "/findByOcorrenciaId/{ocorrenciaId}")
-  public ResponseEntity<?> findByOcorrenciaId(@PathVariable String ocorrenciaId) {
-    return new ResponseEntity<>(registroOcorrenciaDAO.findByOcorrenciaIdIgnoreCaseContaining(ocorrenciaId), HttpStatus.OK);
+  @GetMapping(path = "/findByTipoOcorrenciaId/{tipoOcorrenciaId}")
+  public ResponseEntity<?> findByTipoOcorrenciaId(@PathVariable String tipoOcorrenciaId) {
+    return new ResponseEntity<>(registroOcorrenciaDAO.findByOcorrenciaIdIgnoreCaseContaining(tipoOcorrenciaId), HttpStatus.OK);
   }
 
   @PostMapping

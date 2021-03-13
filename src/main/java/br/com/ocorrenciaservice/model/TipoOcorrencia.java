@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class Ocorrencia extends AbstractEntity{
+public class TipoOcorrencia extends AbstractEntity{
   @NotEmpty(message = "O campo categoria é obrigatório!")
   private  String categoria;
   @NotEmpty

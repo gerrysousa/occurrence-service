@@ -1,8 +1,8 @@
 package br.com.ocorrenciaservice.endpoint;
 
 import br.com.ocorrenciaservice.error.ResourceNotFoundException;
-import br.com.ocorrenciaservice.model.Ocorrencia;
-import br.com.ocorrenciaservice.repository.OcorrenciaRepository;
+import br.com.ocorrenciaservice.model.TipoOcorrencia;
+import br.com.ocorrenciaservice.repository.TipoOcorrenciaRepository;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -24,58 +24,58 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @RestController
-@RequestMapping("ocorrencias")
-public class OcorrenciaEnpoint {
-  private final OcorrenciaRepository ocorrenciaDAO;
+@RequestMapping("tipoOcorrencias")
+public class TipoOcorrenciaEnpoints {
+  private final TipoOcorrenciaRepository tipoOcorrenciaDAO;
 
   @Autowired
-  public OcorrenciaEnpoint(OcorrenciaRepository ocorrenciaDAO) {
-    this.ocorrenciaDAO = ocorrenciaDAO;
+  public TipoOcorrenciaEnpoints(TipoOcorrenciaRepository tipoOcorrenciaDAO) {
+    this.tipoOcorrenciaDAO = tipoOcorrenciaDAO;
   }
 
   @GetMapping
   public ResponseEntity<?> listAll(Pageable pageable) {
-    return new ResponseEntity<>(ocorrenciaDAO.findAll(pageable), HttpStatus.OK);
+    return new ResponseEntity<>(tipoOcorrenciaDAO.findAll(pageable), HttpStatus.OK);
   }
 
   @GetMapping(path = "/{id}")
-  public ResponseEntity<?> getOcorrenciaById(@PathVariable("id") Long id,
+  public ResponseEntity<?> getTipoOcorrenciaById(@PathVariable("id") Long id,
       @AuthenticationPrincipal UserDetails userDetails) {
     System.out.println(userDetails);
-    verificarSeOcorrenciaExiste(id);
-    Ocorrencia ocorrencia = ocorrenciaDAO.findById(id).get();
-    return new ResponseEntity<>(ocorrencia, HttpStatus.OK);
+    verificarSeTipoOcorrenciaExiste(id);
+    TipoOcorrencia tipoOcorrencia = tipoOcorrenciaDAO.findById(id).get();
+    return new ResponseEntity<>(tipoOcorrencia, HttpStatus.OK);
   }
 
   @GetMapping(path = "/findByCategoria/{categoria}")
   public ResponseEntity<?> findByCategoria(@PathVariable String categoria) {
-    return new ResponseEntity<>(ocorrenciaDAO.findByCategoriaIgnoreCaseContaining(categoria), HttpStatus.OK);
+    return new ResponseEntity<>(tipoOcorrenciaDAO.findByCategoriaIgnoreCaseContaining(categoria), HttpStatus.OK);
   }
 
   @PostMapping
   @Transactional(rollbackFor = Exception.class)
-  public ResponseEntity<?> save(@Valid @RequestBody Ocorrencia ocorrencia) {
-    return new ResponseEntity<>(ocorrenciaDAO.save(ocorrencia), HttpStatus.CREATED);
+  public ResponseEntity<?> save(@Valid @RequestBody TipoOcorrencia tipoOcorrencia) {
+    return new ResponseEntity<>(tipoOcorrenciaDAO.save(tipoOcorrencia), HttpStatus.CREATED);
   }
 
   @DeleteMapping(path = "/{id}")
   @PreAuthorize("hasRole('ADMIN')")
   public ResponseEntity<?> delete(@PathVariable Long id) {
-    verificarSeOcorrenciaExiste(id);
-    ocorrenciaDAO.deleteById(id);
+    verificarSeTipoOcorrenciaExiste(id);
+    tipoOcorrenciaDAO.deleteById(id);
     return new ResponseEntity<>(HttpStatus.OK);
   }
 
   @PutMapping
-  public ResponseEntity<?> update(@RequestBody Ocorrencia ocorrencia) {
-    verificarSeOcorrenciaExiste(ocorrencia.getId());
-    ocorrenciaDAO.save(ocorrencia);
+  public ResponseEntity<?> update(@RequestBody TipoOcorrencia tipoOcorrencia) {
+    verificarSeTipoOcorrenciaExiste(tipoOcorrencia.getId());
+    tipoOcorrenciaDAO.save(tipoOcorrencia);
     return new ResponseEntity<>(HttpStatus.OK);
   }
 
-  private void verificarSeOcorrenciaExiste(Long id){
-    if (!ocorrenciaDAO.findById(id).isPresent()){
-      throw new ResourceNotFoundException("ocorrencia not found for ID: "+id);
+  private void verificarSeTipoOcorrenciaExiste(Long id){
+    if (!tipoOcorrenciaDAO.findById(id).isPresent()){
+      throw new ResourceNotFoundException("TipoOcorrencia not found for ID: "+id);
     }
   }
 }

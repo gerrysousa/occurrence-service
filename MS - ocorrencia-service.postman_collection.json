@@ -6,10 +6,10 @@
 	},
 	"item": [
 		{
-			"name": "Ocorrencias",
+			"name": "TipoOcorrencias",
 			"item": [
 				{
-					"name": "Get All ocorrencias",
+					"name": "Get All TipoOcorrencias",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -29,14 +29,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/ocorrencias?page=0&size=10",
+							"raw": "http://localhost:8080/tipoOcorrencias?page=0&size=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"ocorrencias"
+								"tipoOcorrencias"
 							],
 							"query": [
 								{
@@ -53,7 +53,7 @@
 					"response": []
 				},
 				{
-					"name": "Get All ocorrencias by Categoria",
+					"name": "Get All TipoOcorrencias by Categoria",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -73,14 +73,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/ocorrencias/findByCategoria/:categoria",
+							"raw": "http://localhost:8080/tipoOcorrencias/findByCategoria/:categoria",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"ocorrencias",
+								"tipoOcorrencias",
 								"findByCategoria",
 								":categoria"
 							],
@@ -107,7 +107,7 @@
 					"response": []
 				},
 				{
-					"name": "Create a new Ocorrencia",
+					"name": "Cadastrar um novo TipoOcorrencia",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -136,14 +136,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/ocorrencias/",
+							"raw": "http://localhost:8080/tipoOcorrencias/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"ocorrencias",
+								"tipoOcorrencias",
 								""
 							]
 						}
@@ -151,7 +151,7 @@
 					"response": []
 				},
 				{
-					"name": "Update a Ocorrencia",
+					"name": "Update um TipoOcorrencia",
 					"request": {
 						"method": "PUT",
 						"header": [],
@@ -165,14 +165,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/ocorrencias/",
+							"raw": "http://localhost:8080/tipoOcorrencias/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"ocorrencias",
+								"tipoOcorrencias",
 								""
 							]
 						}
@@ -180,7 +180,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete a ocorrencia",
+					"name": "Delete a TipoOcorrencia",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -209,19 +209,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/ocorrencias/:ocorrenciaId",
+							"raw": "http://localhost:8080/tipoOcorrencias/:tipoOcorrencias",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"ocorrencias",
-								":ocorrenciaId"
+								"tipoOcorrencias",
+								":tipoOcorrenciaId"
 							],
 							"variable": [
 								{
-									"key": "ocorrenciaId",
+									"key": "tipoOcorrenciaId",
 									"value": ""
 								}
 							]
@@ -279,7 +279,7 @@
 					"response": []
 				},
 				{
-					"name": "Get All registro de ocorrencias by ocorrenciaId",
+					"name": "Get All registro de ocorrencias by tipoOcorrenciaId",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -299,7 +299,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/registro_ocorrencias/findByOcorrenciaId/:ocorrenciaId",
+							"raw": "http://localhost:8080/registro_ocorrencias/findByTipoOcorrenciaId/:tipoOcorrencias",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -307,8 +307,8 @@
 							"port": "8080",
 							"path": [
 								"registro_ocorrencias",
-								"findByOcorrenciaId",
-								":ocorrenciaId"
+								"findByTipoOcorrenciaId",
+								":tipoOcorrenciaId"
 							],
 							"query": [
 								{
@@ -324,7 +324,7 @@
 							],
 							"variable": [
 								{
-									"key": "ocorrenciaId",
+									"key": "tipoOcorrenciaId",
 									"value": "2"
 								}
 							]
@@ -354,7 +354,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"usuarioId\": \"4\",\r\n    \"ocorrenciaId\":\"2\",\r\n    \"status\":\"ativo\",\r\n    \"dataCadastro\":\"2021-03-13T12:11:30.652Z\",\r\n    \"latitude\":-19.919334,\r\n    \"longitude\":-43.938288\r\n}",
+							"raw": "{\r\n    \"usuarioId\": \"4\",\r\n    \"tipoOcorrenciaId\":\"2\",\r\n    \"status\":\"ativo\",\r\n    \"dataCadastro\":\"2021-03-13T12:11:30.652Z\",\r\n    \"latitude\":-19.919334,\r\n    \"longitude\":-43.938288\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -383,7 +383,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 7,\r\n    \"usuarioId\": \"2\",\r\n    \"ocorrenciaId\": \"3\",\r\n    \"status\": \"ativo\",\r\n    \"dataCadastro\": \"2021-03-13T12:11:31.000+00:00\",\r\n    \"latitude\": -19.919334,\r\n    \"longitude\": -43.938288\r\n}",
+							"raw": "{\r\n    \"id\": 7,\r\n    \"usuarioId\": \"2\",\r\n    \"tipoOcorrenciaId\": \"3\",\r\n    \"status\": \"ativo\",\r\n    \"dataCadastro\": \"2021-03-13T12:11:31.000+00:00\",\r\n    \"latitude\": -19.919334,\r\n    \"longitude\": -43.938288\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
