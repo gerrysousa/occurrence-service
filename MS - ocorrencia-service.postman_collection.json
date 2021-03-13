@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "64ccd64f-7bae-4b0a-a6ec-3e5fd88462c7",
+		"_postman_id": "004d82ad-41ba-44fc-b667-bf54f6c0b8b1",
 		"name": "MS - ocorrencia-service",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -29,12 +29,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/tipoOcorrencias?page=0&size=10",
+							"raw": "http://localhost:4000/tipoOcorrencias?page=0&size=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "4000",
 							"path": [
 								"tipoOcorrencias"
 							],
@@ -73,12 +73,12 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/tipoOcorrencias/findByCategoria/:categoria",
+							"raw": "http://localhost:4000/tipoOcorrencias/findByCategoria/:categoria",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "4000",
 							"path": [
 								"tipoOcorrencias",
 								"findByCategoria",
@@ -136,12 +136,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/tipoOcorrencias/",
+							"raw": "http://localhost:4000/tipoOcorrencias/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "4000",
 							"path": [
 								"tipoOcorrencias",
 								""
@@ -157,7 +157,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 5,\r\n    \"categoria\": \"Qualidade\",\r\n    \"subcategoria\":\"Iluminação pública precária\",\r\n    \"status\":\"ativo\",\r\n    \"dataCadastro\":\"2021-03-13T12:11:30.652Z\"\r\n}",
+							"raw": "{\r\n    \"id\": 2,\r\n    \"categoria\": \"Qualidade\",\r\n    \"subcategoria\": \"Iluminação pública precária\",\r\n    \"status\": \"ativo\",\r\n    \"dataCadastro\": \"2021-03-13T12:11:31.000+00:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -165,12 +165,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/tipoOcorrencias/",
+							"raw": "http://localhost:4000/tipoOcorrencias/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "4000",
 							"path": [
 								"tipoOcorrencias",
 								""
@@ -209,12 +209,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/tipoOcorrencias/:tipoOcorrencias",
+							"raw": "http://localhost:4000/tipoOcorrencias/:tipoOcorrenciaId",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "4000",
 							"path": [
 								"tipoOcorrencias",
 								":tipoOcorrenciaId"
@@ -222,7 +222,7 @@
 							"variable": [
 								{
 									"key": "tipoOcorrenciaId",
-									"value": ""
+									"value": "7"
 								}
 							]
 						}
@@ -255,14 +255,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/registro_ocorrencias?page=0&size=10",
+							"raw": "http://localhost:4000/ocorrencias?page=0&size=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "4000",
 							"path": [
-								"registro_ocorrencias"
+								"ocorrencias"
 							],
 							"query": [
 								{
@@ -299,14 +299,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/registro_ocorrencias/findByTipoOcorrenciaId/:tipoOcorrencias",
+							"raw": "http://localhost:4000/ocorrencias/findByTipoOcorrenciaId/:tipoOcorrenciaId",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "4000",
 							"path": [
-								"registro_ocorrencias",
+								"ocorrencias",
 								"findByTipoOcorrenciaId",
 								":tipoOcorrenciaId"
 							],
@@ -354,7 +354,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"usuarioId\": \"4\",\r\n    \"tipoOcorrenciaId\":\"2\",\r\n    \"status\":\"ativo\",\r\n    \"dataCadastro\":\"2021-03-13T12:11:30.652Z\",\r\n    \"latitude\":-19.919334,\r\n    \"longitude\":-43.938288\r\n}",
+							"raw": "{\r\n    \"usuarioId\": \"1\",\r\n    \"tipoOcorrenciaId\":\"2\",\r\n    \"status\":\"ativo\",\r\n    \"dataCadastro\":\"2021-03-13T12:11:30.652Z\",\r\n    \"latitude\":-19.919334,\r\n    \"longitude\":-43.938288,\r\n    \"descricao\":\"A Iluminação não está funcionando na localidade\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -362,14 +362,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/registro_ocorrencias/",
+							"raw": "http://localhost:4000/ocorrencias/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "4000",
 							"path": [
-								"registro_ocorrencias",
+								"ocorrencias",
 								""
 							]
 						}
@@ -383,7 +383,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 7,\r\n    \"usuarioId\": \"2\",\r\n    \"tipoOcorrenciaId\": \"3\",\r\n    \"status\": \"ativo\",\r\n    \"dataCadastro\": \"2021-03-13T12:11:31.000+00:00\",\r\n    \"latitude\": -19.919334,\r\n    \"longitude\": -43.938288\r\n}",
+							"raw": "{\r\n    \"id\": 8,\r\n    \"usuarioId\": \"1\",\r\n    \"tipoOcorrenciaId\": \"2\",\r\n    \"status\": \"ativo\",\r\n    \"dataCadastro\": \"2021-03-13T12:11:30.652+00:00\",\r\n    \"latitude\": -19.919334,\r\n    \"longitude\": -43.938288,\r\n    \"descricao\": \"A Iluminação não está funcionando na localidade, e tem mais...\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -391,14 +391,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/registro_ocorrencias/",
+							"raw": "http://localhost:4000/ocorrencias/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "4000",
 							"path": [
-								"registro_ocorrencias",
+								"ocorrencias",
 								""
 							]
 						}
@@ -435,19 +435,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/registro_ocorrencias/:registro_ocorrenciasId",
+							"raw": "http://localhost:4000/ocorrencias/:ocorrenciasId",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "8080",
+							"port": "4000",
 							"path": [
-								"registro_ocorrencias",
-								":registro_ocorrenciasId"
+								"ocorrencias",
+								":ocorrenciasId"
 							],
 							"variable": [
 								{
-									"key": "registro_ocorrenciasId",
+									"key": "ocorrenciasId",
 									"value": "9"
 								}
 							]
