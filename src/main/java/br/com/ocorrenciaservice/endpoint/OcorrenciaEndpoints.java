@@ -51,6 +51,11 @@ public class OcorrenciaEndpoints {
     return new ResponseEntity<>(ocorrenciaDAO.findByTipoOcorrenciaIdIgnoreCaseContaining(tipoOcorrenciaId), HttpStatus.OK);
   }
 
+  @GetMapping(path = "/findByUsuarioId/{usuarioId}")
+  public ResponseEntity<?> findByUsuarioId(@PathVariable String usuarioId) {
+    return new ResponseEntity<>(ocorrenciaDAO.findByUsuarioIdIgnoreCaseContaining(usuarioId), HttpStatus.OK);
+  }
+
   @PostMapping
   @Transactional(rollbackFor = Exception.class)
   public ResponseEntity<?> save(@Valid @RequestBody Ocorrencia ocorrencia) {
