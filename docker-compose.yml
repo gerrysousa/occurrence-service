@@ -20,8 +20,10 @@ services:
       dockerfile: Dockerfile
     ports:
       - "4000:4000"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/ocorrenciasDB?autoReconnect=true&useSSL=false
     depends_on:
-      - db    
+      - db
 volumes:
   my-db:
   
