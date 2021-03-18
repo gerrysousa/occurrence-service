@@ -72,7 +72,7 @@ public class OcorrenciaEndpoints {
 
   @PutMapping
   public ResponseEntity<?> update(@RequestBody Ocorrencia ocorrencia) {
-    verificarSeOcorrenciaExiste(ocorrencia.getId());
+    verificarSeOcorrenciaExiste(ocorrencia.getOcorrenciaId());
     ocorrenciaDAO.save(ocorrencia);
     return new ResponseEntity<>(HttpStatus.OK);
   }

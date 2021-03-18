@@ -68,7 +68,7 @@ public class TipoOcorrenciaEnpoints {
 
   @PutMapping
   public ResponseEntity<?> update(@RequestBody TipoOcorrencia tipoOcorrencia) {
-    verificarSeTipoOcorrenciaExiste(tipoOcorrencia.getId());
+    verificarSeTipoOcorrenciaExiste(tipoOcorrencia.getTipoOcorrenciaId());
     tipoOcorrenciaDAO.save(tipoOcorrencia);
     return new ResponseEntity<>(HttpStatus.OK);
   }

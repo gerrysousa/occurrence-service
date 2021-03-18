@@ -8,6 +8,6 @@ public interface OcorrenciaRepository extends
     PagingAndSortingRepository<Ocorrencia, Long> {
     List<Ocorrencia> findByTipoOcorrenciaIdIgnoreCaseContaining(String tipoOcorrenciaId);
 
-  List<Ocorrencia> findByUsuarioIdIgnoreCaseContaining(String usuarioId);
+    List<Ocorrencia> findByUsuarioIdIgnoreCaseContaining(String usuarioId);
 
   }

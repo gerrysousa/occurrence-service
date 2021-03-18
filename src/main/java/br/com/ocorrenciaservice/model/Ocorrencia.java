@@ -1,11 +1,21 @@
 package br.com.ocorrenciaservice.model;
 
 import java.util.Date;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class Ocorrencia extends AbstractEntity{
+public class Ocorrencia{
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private  Long ocorrenciaId;
+
   @NotEmpty(message = "O campo usuarioId é obrigatório!")
   private  String usuarioId;
   @NotEmpty(message = "O campo tipoOcorrenciaId é obrigatório!")
@@ -20,6 +30,14 @@ public class Ocorrencia extends AbstractEntity{
   private double longitude;
 
   private String descricao;
+
+  public Long getOcorrenciaId() {
+    return ocorrenciaId;
+  }
+
+    public void setOcorrenciaId(Long ocorrenciaId) {
+    this.ocorrenciaId = ocorrenciaId;
+  }
 
   public String getDescricao() {
     return descricao;

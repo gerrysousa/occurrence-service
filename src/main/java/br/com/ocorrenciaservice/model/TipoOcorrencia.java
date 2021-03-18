@@ -2,18 +2,33 @@ package br.com.ocorrenciaservice.model;
 
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
-public class TipoOcorrencia extends AbstractEntity{
+public class TipoOcorrencia {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long tipoOcorrenciaId;
+
   @NotEmpty(message = "O campo categoria é obrigatório!")
-  private  String categoria;
-  @NotEmpty
-  private String subcategoria;
+  private String categoria;
+
+  @NotEmpty private String subcategoria;
 
   private String status;
 
   private Date dataCadastro;
+
+  public Long getTipoOcorrenciaId() {
+    return tipoOcorrenciaId;
+  }
+
+  public void setTipoOcorrenciaId(Long tipoOcorrenciaId) {
+    this.tipoOcorrenciaId = tipoOcorrenciaId;
+  }
 
   public String getCategoria() {
     return categoria;
@@ -46,5 +61,4 @@ public class TipoOcorrencia extends AbstractEntity{
   public void setDataCadastro(Date dataCadastro) {
     this.dataCadastro = dataCadastro;
   }
-
 }
