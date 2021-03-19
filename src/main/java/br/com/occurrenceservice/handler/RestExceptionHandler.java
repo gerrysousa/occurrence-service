@@ -1,9 +1,9 @@
-package br.com.ocorrenciaservice.handler;
+package br.com.occurrenceservice.handler;
 
-import br.com.ocorrenciaservice.error.ErrorDetails;
-import br.com.ocorrenciaservice.error.ResourceNotFoundDetails;
-import br.com.ocorrenciaservice.error.ResourceNotFoundException;
-import br.com.ocorrenciaservice.error.ValidationErrorDetails;
+import br.com.occurrenceservice.error.ErrorDetails;
+import br.com.occurrenceservice.error.ResourceNotFoundDetails;
+import br.com.occurrenceservice.error.ResourceNotFoundException;
+import br.com.occurrenceservice.error.ValidationErrorDetails;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;

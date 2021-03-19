@@ -1,4 +1,4 @@
-package br.com.ocorrenciaservice.error;
+package br.com.occurrenceservice.error;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -1,18 +1,18 @@
-# Ocorrencia Services
+# Occurrence Service
 
+How to run the project:
+- Run the command below inside the root folder to create a jar file:
 
-####Criar schema de banco de dados
+```
+mvnw package && java -jar target/occurrence-service-0.1.0.jar
+```
 
-CREATE SCHEMA `ocorrenciasDB` ;
+- Run the command below to create the containers Web-service and DB:
+```
+docker-compose up --build
+```
 
-
-####Criar table ocorrencias
-
-CREATE TABLE `ocorrenciasDB`.`ocorrencias` (
-  `idocorrencias` INT NOT NULL AUTO_INCREMENT,
-  `categoria` VARCHAR(45) NOT NULL,
-  `subcategoria` VARCHAR(45) NOT NULL,
-  `status` VARCHAR(45) NULL,
-  `dataCadastro` DATETIME NULL,
-  PRIMARY KEY (`idocorrencias`));
-
+The project will starts on url: 
+```
+http://localhost:4000
+```

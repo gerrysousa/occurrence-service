@@ -1,15 +1,15 @@
 {
 	"info": {
 		"_postman_id": "004d82ad-41ba-44fc-b667-bf54f6c0b8b1",
-		"name": "MS - ocorrencia-service",
+		"name": "MS - occurrence-service",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "TipoOcorrencias",
+			"name": "OccurrenceType",
 			"item": [
 				{
-					"name": "Get All TipoOcorrencias",
+					"name": "Get All OccurrenceType",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -29,14 +29,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/tipoOcorrencias?page=0&size=10",
+							"raw": "http://localhost:4000/occurrenceTypes?page=0&size=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"tipoOcorrencias"
+								"occurrenceTypes"
 							],
 							"query": [
 								{
@@ -53,7 +53,7 @@
 					"response": []
 				},
 				{
-					"name": "Get All TipoOcorrencias by Categoria",
+					"name": "Get All OccurrenceType by Category",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -73,16 +73,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/tipoOcorrencias/findByCategoria/:categoria",
+							"raw": "http://localhost:4000/occurrenceTypes/findByCategory/:category",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"tipoOcorrencias",
-								"findByCategoria",
-								":categoria"
+								"occurrenceTypes",
+								"findByCategory",
+								":category"
 							],
 							"query": [
 								{
@@ -98,7 +98,7 @@
 							],
 							"variable": [
 								{
-									"key": "categoria",
+									"key": "category",
 									"value": "Qualidade"
 								}
 							]
@@ -107,7 +107,7 @@
 					"response": []
 				},
 				{
-					"name": "Cadastrar um novo TipoOcorrencia",
+					"name": "Create a new OccurrenceType",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -128,7 +128,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"categoria\": \"Qualidade\",\r\n    \"subcategoria\":\"Rua com problema (buraco, entulho, lixo, etc.)\",\r\n    \"status\":\"ativo\",\r\n    \"dataCadastro\":\"2021-03-13T12:11:30.652Z\"\r\n}",
+							"raw": "{\r\n    \"category\": \"Qualidade\",\r\n    \"subcategory\":\"Rua com problema (buraco, entulho, lixo, etc.)\",\r\n    \"status\":\"ativo\",\r\n    \"createDate\":\"2021-03-13T12:11:30.652Z\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -136,14 +136,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/tipoOcorrencias/",
+							"raw": "http://localhost:4000/occurrenceTypes/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"tipoOcorrencias",
+								"occurrenceTypes",
 								""
 							]
 						}
@@ -151,13 +151,13 @@
 					"response": []
 				},
 				{
-					"name": "Update um TipoOcorrencia",
+					"name": "Update an OccurrenceType",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 2,\r\n    \"categoria\": \"Qualidade\",\r\n    \"subcategoria\": \"Iluminação pública precária\",\r\n    \"status\": \"ativo\",\r\n    \"dataCadastro\": \"2021-03-13T12:11:31.000+00:00\"\r\n}",
+							"raw": "{\r\n    \"occurrenceTypeId\": 2,\r\n    \"category\": \"Qualidade\",\r\n    \"subcategory\": \"Iluminação pública precária\",\r\n    \"status\": \"ativo\",\r\n    \"createDate\": \"2021-03-13T12:11:31.000+00:00\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -165,14 +165,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/tipoOcorrencias/",
+							"raw": "http://localhost:4000/occurrenceTypes/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"tipoOcorrencias",
+								"occurrenceTypes",
 								""
 							]
 						}
@@ -180,7 +180,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete a TipoOcorrencia",
+					"name": "Delete an OccurrenceType",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -209,19 +209,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/tipoOcorrencias/:tipoOcorrenciaId",
+							"raw": "http://localhost:4000/occurrenceTypes/:occurrenceTypeId",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"tipoOcorrencias",
-								":tipoOcorrenciaId"
+								"occurrenceTypes",
+								":occurrenceTypeId"
 							],
 							"variable": [
 								{
-									"key": "tipoOcorrenciaId",
+									"key": "occurrenceTypeId",
 									"value": "7"
 								}
 							]
@@ -232,10 +232,10 @@
 			]
 		},
 		{
-			"name": "Registro de Ocorrencias",
+			"name": "Report of Occurrences",
 			"item": [
 				{
-					"name": "Get All registro de ocorrencias",
+					"name": "Get All occurrences",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -255,14 +255,14 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/ocorrencias?page=0&size=10",
+							"raw": "http://localhost:4000/occurrences?page=0&size=10",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"ocorrencias"
+								"occurrences"
 							],
 							"query": [
 								{
@@ -279,7 +279,7 @@
 					"response": []
 				},
 				{
-					"name": "Get All registro de ocorrencias by tipoOcorrenciaId",
+					"name": "Get All occurrences by occurrenceTypeId",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -299,16 +299,16 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:4000/ocorrencias/findByTipoOcorrenciaId/:tipoOcorrenciaId",
+							"raw": "http://localhost:4000/occurrences/findByOccurrenceTypeId/:occurrenceTypeId",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"ocorrencias",
-								"findByTipoOcorrenciaId",
-								":tipoOcorrenciaId"
+								"occurrences",
+								"findByOccurrenceTypeId",
+								":occurrenceTypeId"
 							],
 							"query": [
 								{
@@ -324,7 +324,7 @@
 							],
 							"variable": [
 								{
-									"key": "tipoOcorrenciaId",
+									"key": "occurrenceTypeId",
 									"value": "2"
 								}
 							]
@@ -333,7 +333,7 @@
 					"response": []
 				},
 				{
-					"name": "Create um novo Registro de Ocorrencia",
+					"name": "Create a Occurrence",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -354,7 +354,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"usuarioId\": \"1\",\r\n    \"tipoOcorrenciaId\":\"2\",\r\n    \"status\":\"ativo\",\r\n    \"dataCadastro\":\"2021-03-13T12:11:30.652Z\",\r\n    \"latitude\":-19.919334,\r\n    \"longitude\":-43.938288,\r\n    \"descricao\":\"A Iluminação não está funcionando na localidade\"\r\n}",
+							"raw": "{\r\n    \"userId\": \"1\",\r\n    \"occurrenceTypeId\":\"2\",\r\n    \"status\":\"ativo\",\r\n    \"createDate\":\"2021-03-13T12:11:30.652Z\",\r\n    \"latitude\":-19.919334,\r\n    \"longitude\":-43.938288,\r\n    \"description\":\"A Iluminação não está funcionando na localidade\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -362,14 +362,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/ocorrencias/",
+							"raw": "http://localhost:4000/occurrences/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"ocorrencias",
+								"occurrences",
 								""
 							]
 						}
@@ -377,13 +377,13 @@
 					"response": []
 				},
 				{
-					"name": "Update um registro de Ocorrencia",
+					"name": "Update an Occurrence",
 					"request": {
 						"method": "PUT",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"id\": 8,\r\n    \"usuarioId\": \"1\",\r\n    \"tipoOcorrenciaId\": \"2\",\r\n    \"status\": \"ativo\",\r\n    \"dataCadastro\": \"2021-03-13T12:11:30.652+00:00\",\r\n    \"latitude\": -19.919334,\r\n    \"longitude\": -43.938288,\r\n    \"descricao\": \"A Iluminação não está funcionando na localidade, e tem mais...\"\r\n}",
+							"raw": "{\r\n    \"occurrenceId\": 8,\r\n    \"userId\": \"1\",\r\n    \"occurrenceTypeId\": \"2\",\r\n    \"status\": \"ativo\",\r\n    \"createDate\": \"2021-03-13T12:11:30.652+00:00\",\r\n    \"latitude\": -19.919334,\r\n    \"longitude\": -43.938288,\r\n    \"description\": \"A Iluminação não está funcionando na localidade, e tem mais...\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -391,14 +391,14 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/ocorrencias/",
+							"raw": "http://localhost:4000/occurrences/",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"ocorrencias",
+								"occurrences",
 								""
 							]
 						}
@@ -406,7 +406,7 @@
 					"response": []
 				},
 				{
-					"name": "Delete um registro de ocorrencia",
+					"name": "Delete a occurrence",
 					"request": {
 						"auth": {
 							"type": "basic",
@@ -435,19 +435,19 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:4000/ocorrencias/:ocorrenciasId",
+							"raw": "http://localhost:4000/occurrences/:occurrenceId",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "4000",
 							"path": [
-								"ocorrencias",
-								":ocorrenciasId"
+								"occurrences",
+								":occurrenceId"
 							],
 							"variable": [
 								{
-									"key": "ocorrenciasId",
+									"key": "occurrenceId",
 									"value": "9"
 								}
 							]

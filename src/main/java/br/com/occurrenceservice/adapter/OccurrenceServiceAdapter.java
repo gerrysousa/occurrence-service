@@ -1,4 +1,4 @@
-package br.com.ocorrenciaservice.adapter;
+package br.com.occurrenceservice.adapter;
 
 import java.util.List;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +10,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 @Configuration
-public class OcorrenciaServiceAdapter implements WebMvcConfigurer {
+public class OccurrenceServiceAdapter implements WebMvcConfigurer {
 
   @Override
   public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers){

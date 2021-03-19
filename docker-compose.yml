@@ -4,7 +4,7 @@ services:
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: 'ocorrenciasDB'
+      MYSQL_DATABASE: 'occurrenceDB'
       MYSQL_USER: 'root'
       MYSQL_PASSWORD: 'password'
       MYSQL_ROOT_PASSWORD: 'password'
@@ -21,7 +21,7 @@ services:
     ports:
       - "4000:4000"
     environment:
-      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/ocorrenciasDB?autoReconnect=true&useSSL=false
+      SPRING_DATASOURCE_URL: jdbc:mysql://db:3306/occurrenceDB?autoReconnect=true&useSSL=false
     depends_on:
       - db
 volumes:

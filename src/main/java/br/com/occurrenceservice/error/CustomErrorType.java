@@ -1,4 +1,4 @@
-package br.com.ocorrenciaservice.error;
+package br.com.occurrenceservice.error;
 
 public class CustomErrorType {
   private String errorMessage;

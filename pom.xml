@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>groupId</groupId>
-	<artifactId>tipoOcorrencia-service</artifactId>
+	<artifactId>occurrence-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>demo</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Occurrence-service</description>
 
 	<properties>
 		<java.version>11</java.version>

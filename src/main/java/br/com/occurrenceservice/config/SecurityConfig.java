@@ -1,4 +1,4 @@
-package br.com.ocorrenciaservice.config;
+package br.com.occurrenceservice.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
