@@ -2,10 +2,11 @@ package br.com.occurrenceservice.repository;
 
 import br.com.occurrenceservice.model.Occurrence;
 import java.util.List;
-import org.springframework.data.repository.PagingAndSortingRepository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface OccurrenceRepository extends
-    PagingAndSortingRepository<Occurrence, Long> {
+        JpaRepository<Occurrence, Long> {
     List<Occurrence> findByOccurrenceTypeIdIgnoreCaseContaining(String occurrenceTypeId);
 
     List<Occurrence> findByUserIdIgnoreCaseContaining(String userId);
