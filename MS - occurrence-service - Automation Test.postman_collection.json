@@ -1,0 +1,767 @@
+{
+	"info": {
+		"_postman_id": "801fb852-b8a5-4160-b037-c64cd49ab612",
+		"name": "MS - occurrence-service - Automation Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Automation Tests",
+			"item": [
+				{
+					"name": "OccurrenceType Copy",
+					"item": [
+						{
+							"name": "Create a new OccurrenceType",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var today = new Date();\r",
+											"var xday = today.getDate();\r",
+											"var xmonth = today.getMonth()+1; \r",
+											"var xyear = today.getFullYear();\r",
+											"var xhour = today.getHours();\r",
+											"var xminutes = today.getMinutes();\r",
+											"var xmiliseconds = today.getMilliseconds();\r",
+											"if(xday<10) \r",
+											"{\r",
+											"    xday='0'+xday;\r",
+											"} \r",
+											"if(xmonth<10) \r",
+											"{\r",
+											"    xmonth='0'+xmonth;\r",
+											"} \r",
+											"if(xhour<10) \r",
+											"{\r",
+											"    xhour='0'+xhour;\r",
+											"} \r",
+											"if(xminutes<10) \r",
+											"{\r",
+											"    xminutes='0'+xminutes;\r",
+											"} \r",
+											"var xtestname = \"_\"+xyear+xmonth+xday+\"_\"+xhour+xminutes+xmiliseconds;\r",
+											"console.log(xtestname);\r",
+											"\r",
+											"\r",
+											"//-----------------------------Variables------------------------------------------------------\r",
+											"//-----------------------------Variables------------------------------------------------------\r",
+											"pm.globals.set('dateTime', new Date().toISOString());\r",
+											"\r",
+											"pm.globals.set('new_variable', xtestname);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Validate response\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"    pm.response.to.not.have.status(202);\r",
+											"});\r",
+											"\r",
+											"pm.test('Save occurrenceTypeId variable.', () => {\r",
+											"    var resp = pm.response.json();\r",
+											"    pm.expect(resp).to.have.property('occurrenceTypeId');\r",
+											"    pm.globals.set('occurrenceTypeId', resp.occurrenceTypeId);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"category\": \"Segurança\",\r\n    \"subcategory\": \"Furto de bens (Sem o uso de força física) {{new_variable}}\",\r\n    \"status\": \"ativo\",\r\n    \"createDate\": \"{{dateTime}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/occurrenceTypes/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"occurrenceTypes",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All OccurrenceType",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Validate response\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"    pm.response.to.not.have.status(202);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/occurrenceTypes?page=0&size=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"occurrenceTypes"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All OccurrenceType by Category",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Validate response\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"    pm.response.to.not.have.status(202);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/occurrenceTypes/findByCategory/:category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"occurrenceTypes",
+										"findByCategory",
+										":category"
+									],
+									"variable": [
+										{
+											"key": "category",
+											"value": "Segurança"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an OccurrenceType",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var today = new Date();\r",
+											"var xday = today.getDate();\r",
+											"var xmonth = today.getMonth()+1; \r",
+											"var xyear = today.getFullYear();\r",
+											"var xhour = today.getHours();\r",
+											"var xminutes = today.getMinutes();\r",
+											"var xmiliseconds = today.getMilliseconds();\r",
+											"if(xday<10) \r",
+											"{\r",
+											"    xday='0'+xday;\r",
+											"} \r",
+											"if(xmonth<10) \r",
+											"{\r",
+											"    xmonth='0'+xmonth;\r",
+											"} \r",
+											"if(xhour<10) \r",
+											"{\r",
+											"    xhour='0'+xhour;\r",
+											"} \r",
+											"if(xminutes<10) \r",
+											"{\r",
+											"    xminutes='0'+xminutes;\r",
+											"} \r",
+											"var xtestname = \"_\"+xyear+xmonth+xday+\"_\"+xhour+xminutes+xmiliseconds;\r",
+											"console.log(xtestname);\r",
+											"\r",
+											"\r",
+											"//-----------------------------Variables------------------------------------------------------\r",
+											"//-----------------------------Variables------------------------------------------------------\r",
+											"pm.globals.set('dateTime', new Date().toISOString());\r",
+											"\r",
+											"pm.globals.set('new_variable', xtestname);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Validate response\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"    pm.response.to.not.have.status(202);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"occurrenceTypeId\": {{occurrenceTypeId}},\r\n    \"category\": \"Segurança\",\r\n    \"subcategory\": \"Roubo de bens (Com uso de força) Teste PUT {{new_variable}}\",\r\n    \"status\": \"ativo\",\r\n    \"createDate\": \"2021-03-13T12:11:30.652+00:00\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/occurrenceTypes/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"occurrenceTypes",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an OccurrenceType",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Validate response\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"    pm.response.to.not.have.status(202);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/occurrenceTypes/:occurrenceTypeId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"occurrenceTypes",
+										":occurrenceTypeId"
+									],
+									"variable": [
+										{
+											"key": "occurrenceTypeId",
+											"value": "{{occurrenceTypeId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Report of Occurrences Copy",
+					"item": [
+						{
+							"name": "Create a Occurrence",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Validate response\", function () {\r",
+											"    pm.response.to.have.status(201);\r",
+											"    pm.response.to.not.have.status(202);\r",
+											"});\r",
+											"\r",
+											"pm.test('Save occurrenceTypeId variable.', () => {\r",
+											"    var resp = pm.response.json();\r",
+											"    pm.expect(resp).to.have.property('occurrenceId');\r",
+											"    pm.expect(resp).to.have.property('occurrenceTypeId');\r",
+											"\r",
+											"    pm.globals.set('occurrenceId', resp.occurrenceId);\r",
+											"    pm.globals.set('occurrenceTypeId', resp.occurrenceTypeId);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var today = new Date();\r",
+											"var xday = today.getDate();\r",
+											"var xmonth = today.getMonth()+1; \r",
+											"var xyear = today.getFullYear();\r",
+											"var xhour = today.getHours();\r",
+											"var xminutes = today.getMinutes();\r",
+											"var xmiliseconds = today.getMilliseconds();\r",
+											"if(xday<10) \r",
+											"{\r",
+											"    xday='0'+xday;\r",
+											"} \r",
+											"if(xmonth<10) \r",
+											"{\r",
+											"    xmonth='0'+xmonth;\r",
+											"} \r",
+											"if(xhour<10) \r",
+											"{\r",
+											"    xhour='0'+xhour;\r",
+											"} \r",
+											"if(xminutes<10) \r",
+											"{\r",
+											"    xminutes='0'+xminutes;\r",
+											"} \r",
+											"var xtestname = \"_\"+xyear+xmonth+xday+\"_\"+xhour+xminutes+xmiliseconds;\r",
+											"console.log(xtestname);\r",
+											"\r",
+											"\r",
+											"//-----------------------------Variables------------------------------------------------------\r",
+											"//-----------------------------Variables------------------------------------------------------\r",
+											"pm.globals.set('dateTime', new Date().toISOString());\r",
+											"\r",
+											"pm.globals.set('new_variable', xtestname);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"userId\": \"1\",\r\n    \"occurrenceTypeId\":\"3\",\r\n    \"status\":\"ativo\",\r\n    \"createDate\":\"{{dateTime}}\",\r\n    \"latitude\":-19.919334,\r\n    \"longitude\":-43.938288,\r\n    \"description\":\"Fui assaltado nesse local, o criminoso estava armado e levou todos os meus pertences. {{new_variable}}\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/occurrences/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"occurrences",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All occurrences",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Validate response\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"    pm.response.to.not.have.status(202);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/occurrences?page=0&size=10",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"occurrences"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "0"
+										},
+										{
+											"key": "size",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All occurrences by occurrenceTypeId",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Validate response\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"    pm.response.to.not.have.status(202);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4000/occurrences/findByOccurrenceTypeId/:occurrenceTypeId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"occurrences",
+										"findByOccurrenceTypeId",
+										":occurrenceTypeId"
+									],
+									"variable": [
+										{
+											"key": "occurrenceTypeId",
+											"value": "{{occurrenceTypeId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an Occurrence",
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"exec": [
+											"var today = new Date();\r",
+											"var xday = today.getDate();\r",
+											"var xmonth = today.getMonth()+1; \r",
+											"var xyear = today.getFullYear();\r",
+											"var xhour = today.getHours();\r",
+											"var xminutes = today.getMinutes();\r",
+											"var xmiliseconds = today.getMilliseconds();\r",
+											"if(xday<10) \r",
+											"{\r",
+											"    xday='0'+xday;\r",
+											"} \r",
+											"if(xmonth<10) \r",
+											"{\r",
+											"    xmonth='0'+xmonth;\r",
+											"} \r",
+											"if(xhour<10) \r",
+											"{\r",
+											"    xhour='0'+xhour;\r",
+											"} \r",
+											"if(xminutes<10) \r",
+											"{\r",
+											"    xminutes='0'+xminutes;\r",
+											"} \r",
+											"var xtestname = \"_\"+xyear+xmonth+xday+\"_\"+xhour+xminutes+xmiliseconds;\r",
+											"console.log(xtestname);\r",
+											"\r",
+											"\r",
+											"//-----------------------------Variables------------------------------------------------------\r",
+											"//-----------------------------Variables------------------------------------------------------\r",
+											"pm.globals.set('dateTime', new Date().toISOString());\r",
+											"\r",
+											"pm.globals.set('new_variable', xtestname);"
+										],
+										"type": "text/javascript"
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Validate response\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"    pm.response.to.not.have.status(202);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"occurrenceId\": {{occurrenceId}},\r\n    \"userId\": \"1\",\r\n    \"occurrenceTypeId\": \"3\",\r\n    \"status\": \"ativo\",\r\n    \"createData\": null,\r\n    \"latitude\": -19.919334,\r\n    \"longitude\": -43.938288,\r\n    \"description\": \"Fui assaltado nesse local, o criminoso estava armado com um 38 e levou todos os meus pertences. TEST PUT {{new_variable}}\"\r\n}\r\n\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/occurrences/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"occurrences",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete a occurrence",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Validate response\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"    pm.response.to.not.have.status(202);\r",
+											"});\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "basic",
+									"basic": [
+										{
+											"key": "password",
+											"value": "123456",
+											"type": "string"
+										},
+										{
+											"key": "username",
+											"value": "admin",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4000/occurrences/:occurrenceId",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4000",
+									"path": [
+										"occurrences",
+										":occurrenceId"
+									],
+									"variable": [
+										{
+											"key": "occurrenceId",
+											"value": "{{occurrenceId}}"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}
